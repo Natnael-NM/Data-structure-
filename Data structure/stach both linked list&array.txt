@@ -1,0 +1,177 @@
+//STACK BY LINKED LIST
+package stack;
+
+
+public class Stack 
+{
+    
+    public class Node {
+int Data;
+Node next;
+}
+    Node head;
+
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public void push(int data) {
+        Node n = new Node();
+        n.Data = data;
+        if (!isEmpty()) {
+            Node nn = head;
+            while (nn.next != null) {
+                nn = nn.next;
+            }
+            nn.next = n;
+        } else {
+            head = n;
+        }
+    }
+
+    public void delet() {
+        Node dt = head;
+        while (dt.next.next != null) {
+            dt = dt.next;
+        }
+        dt.next = null;
+    }
+
+    public void pop() {
+        if (isEmpty()) {
+            System.out.println("the stack is empity");
+        } else {
+            Node x = head;
+            while (x.next != null) {
+                x = x.next;
+            }
+            System.out.println(x.Data);
+            delet();
+        }
+    }
+
+    public void peek() {
+        if (isEmpty()) {
+            System.out.println("the stack is empity");
+        } else {
+            Node pk = head;
+            while (pk.next != null) {
+                pk = pk.next;
+            }
+            System.out.println(pk.Data);
+        }
+    }
+
+    public void show() {
+        Node s = head;
+        while (s != null) {
+            System.out.println(s.Data);
+            s = s.next;
+        }
+   
+
+    }
+     public static void main(String[] args) {
+        Stack ls=new Stack();
+         System.out.println("push 3,4,5");
+   ls.push(3);
+   ls.push(4);
+   ls.push(5);
+  
+   System.out.println("show the stack");
+   ls.show();
+  
+   
+   System.out.println("pop last in or 5");
+   ls.pop();
+   System.out.println("show");
+   
+   
+   ls.show();
+     
+      System.out.println("pop 4");
+      ls.pop();
+      System.out.println("show");
+         
+         
+   ls.peek();
+      System.out.println();
+       ls.show();
+
+    }
+}
+STACK BY ARRAYE
+    
+class stackbyarray {  
+    int top;            //define top of stack
+    int maxsize = 3;    //max size of the stack  
+    int[] stack_arry = new int[maxsize];  //define array that will hold stack elements
+    stackbyarray(){            //stack constructor; initially top = -1
+        top = -1;  
+    }    
+    boolean isEmpty(){
+        if(top==-1)
+        {
+            System.out.println("stack is empty");
+            return true;
+        }
+        else
+            return false;
+    }
+            
+            
+        
+   boolean push (int val){     //push () method  
+        if(top == maxsize-1) {  
+            System.out.println("Stack  is full !!");  
+            return false;  
+        }  
+        else  {  
+            top++;  
+            stack_arry[top]=val;  
+            return true;  
+        }  
+    }  
+    boolean pop () {            //pop () method
+        if (top == -1) {  
+            System.out.println("Stack empty !!");  
+            return false;  
+        }  
+        else   {  
+             
+            System.out.println("\nItem popped: " + stack_arry[top--]);  
+            return true;  
+        }  
+    }  
+    void display () {           //print the stack elements  
+        System.out.println("Printing stack elements .....");  
+        for(int i = top; i>=0;i--) {  
+            System.out.print(stack_arry[i] + " ");  
+        }  
+    }  
+}  
+ 
+public class StackArr{  
+public static void main(String[] args) {  
+    //define a stack object
+    stackbyarray  stck = new stackbyarray ();
+    System.out.println("Initial Stack Empty : " + stck.isEmpty());
+    //push elements
+    stck.push(10);
+    stck.push(20);
+    stck.push(30);
+    stck.push(40);
+    System.out.println("After Push Operation...");
+    //print the elements
+    stck.display();
+    //pop two elements from stack
+    stck.pop();
+    stck.pop();
+    System.out.println("After Pop Operation...");
+    //print the stack again
+    stck.display();
+} 
+}
+   
+
+
